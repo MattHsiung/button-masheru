@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Masheru</title>
+    <script src="socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body style="background-color: black; background-image:url('assets/load.gif');">
+<div id="logo">
+	<img class="logo animated flip zoomIn"src="assets/logo.png">
+	<span id="start" class=' animated flash win-msg big text-center'>
+	  Waiting for players...
+	</span>
+	<img class="chunliStart animated slideInUp" src="assets/chun-li.png">
+	<div class="ryuStart flip">
+	<img class="  animated slideInDown" src="assets/ryu.png">
+	</div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
+<script src="browser/app2.js" ></script>
+<script>
+socket.on('playerReady', function(){
+	$('#start').text('Start')
+})
+
+var sfx={
+    select: document.createElement("AUDIO"),
+    bg: document.createElement("AUDIO")
+}
+sfx.select.src='sound/select.wav'
+sfx.bg.src='sound/intro.mp3'
+sfx.bg.play()
+$('#start').click(function(){
+	sfx.select.play()
+	setTimeout(function(){
+		location.href='/stage'
+	}, 1000)
+})
+
+</script>
+
+</body>
+
+</html>

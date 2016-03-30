@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Masheru</title>
+    <script src="socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+</head>
+<body style="background-color: black; background-image:url('assets/stage.png');">
+<div >
+	<div class="fill">
+		<span id="chinatown" class="stage animated fadeIn flip">
+			<img src="assets/chinatown.png">
+			<h4 class="big">Chinatown</h4>
+		</span>
+		<span id="forest" class="stage animated fadeIn flip">
+			<img src="assets/forest.gif">
+			<h4 class="big">Forest</h4>
+		</span>		
+		<span id="japan" class="stage animated fadeIn flip">
+			<img src="assets/load.gif">
+			<h4 class="big">japan</h4>
+		</span>		
+		<span id="fullstack" class="stage animated fadeIn flip">
+			<img src="assets/fullstack.png">
+			<h4 class="big">FullStack</h4>
+		</span>
+		
+	</div>
+	
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
+<script src="browser/app2.js" ></script>
+<script>
+socket.on('playerReady', function(){
+	$('#start').text('Start')
+})
+
+var sfx={
+    select: document.createElement("AUDIO"),
+    bg: document.createElement("AUDIO")
+}
+sfx.select.src='sound/select.wav'
+sfx.bg.src='sound/stage_select.wav'
+sfx.bg.play()
+$('#chinatown').click(function(){
+	$('.fill').addClass('zoomIn').addClass('animated').addClass('flip')
+	selectStage('chinatown')
+})
+$('#forest').click(function(){
+	$('.fill').addClass('zoomIn').addClass('animated').addClass('flip')
+	selectStage('forest')
+})
+$('#japan').click(function(){
+	$('.fill').addClass('zoomIn').addClass('animated').addClass('flip')
+	selectStage('japan')
+})
+$('#fullstack').click(function(){
+	$('.fill').addClass('zoomIn').addClass('animated').addClass('flip')
+	selectStage('fullstack')
+})
+
+function selectStage(stage){
+	sfx.select.play()
+	setTimeout(function(){
+		location.href='/'+stage
+	}, 1000)
+}
+
+</script>
+
+</body>
+
+</html>

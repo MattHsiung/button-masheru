@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Masheru</title>
+    <script src="socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body style="background-image:url('assets/forest.gif')"; >
+<div >
+    <div id="game-info">
+        <span id="p1-pic" class="big">
+            <img class="pic"src="assets/chun-li.png">
+            Chun-Li
+        </span>
+        
+        <span id="p1-health" class="health-bar"></span>
+        <span id="timer">
+            <h3 id="count-down" class="big">5</h3>
+            <span id="msg"></span>
+        </span>
+        <span id="p2-health" class="health-bar"></span>
+        <span id="p2-pic" class="big">
+            Ryu
+            <img class="pic flip"src="assets/ryu.png">
+        </span>
+
+    </div>
+
+
+    <div id="arena">
+        <div id="player1-area">
+            
+            <div id="p1" class="p1 li-idle" ></div>
+        </div>
+        <div id="player2-area">
+            
+            <div id="p2" class="p2 ryu-idle" ></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var bgMusic= document.createElement("AUDIO");
+    bgMusic.src= 'sound/forest.wav'
+    bgMusic.play()
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.6.1/lodash.min.js"></script>
+<script src="browser/app.js" ></script>
+<script src="browser/app2.js" ></script>
+</body>
+
+</html>
